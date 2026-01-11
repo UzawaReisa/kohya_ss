@@ -34,36 +34,36 @@ def initialize_ui_interface(config, headless, use_shell, release_info, readme_co
     ui_interface = gr.Blocks(css=css, title=f"Kohya_ss GUI {release_info}", theme=gr.themes.Default())
     with ui_interface:
         # Create tabs for different functionalities
-        with gr.Tab("Dreambooth"):
-            (
-                train_data_dir_input,
-                reg_data_dir_input,
-                output_dir_input,
-                logging_dir_input,
-            ) = dreambooth_tab(headless=headless, config=config, use_shell_flag=use_shell)
+        # with gr.Tab("Dreambooth"):
+        #     (
+        #         train_data_dir_input,
+        #         reg_data_dir_input,
+        #         output_dir_input,
+        #         logging_dir_input,
+        #     ) = dreambooth_tab(headless=headless, config=config, use_shell_flag=use_shell)
         with gr.Tab("LoRA"):
             lora_tab(headless=headless, config=config, use_shell_flag=use_shell)
-        with gr.Tab("Textual Inversion"):
-            ti_tab(headless=headless, config=config, use_shell_flag=use_shell)
-        with gr.Tab("Finetuning"):
-            finetune_tab(headless=headless, config=config, use_shell_flag=use_shell)
-        with gr.Tab("Utilities"):
-            # Utilities tab requires inputs from the Dreambooth tab
-            utilities_tab(
-                train_data_dir_input=train_data_dir_input,
-                reg_data_dir_input=reg_data_dir_input,
-                output_dir_input=output_dir_input,
-                logging_dir_input=logging_dir_input,
-                headless=headless,
-                config=config,
-            )
-            with gr.Tab("LoRA"):
-                _ = LoRATools(headless=headless)
-        with gr.Tab("About"):
-            # About tab to display release information and README content
-            gr.Markdown(f"kohya_ss GUI release {release_info}")
-            with gr.Tab("README"):
-                gr.Markdown(readme_content)
+        # with gr.Tab("Textual Inversion"):
+        #     ti_tab(headless=headless, config=config, use_shell_flag=use_shell)
+        # with gr.Tab("Finetuning"):
+        #     finetune_tab(headless=headless, config=config, use_shell_flag=use_shell)
+        # with gr.Tab("Utilities"):
+        #     # Utilities tab requires inputs from the Dreambooth tab
+        #     utilities_tab(
+        #         train_data_dir_input=train_data_dir_input,
+        #         reg_data_dir_input=reg_data_dir_input,
+        #         output_dir_input=output_dir_input,
+        #         logging_dir_input=logging_dir_input,
+        #         headless=headless,
+        #         config=config,
+        #     )
+        #     with gr.Tab("LoRA"):
+        #         _ = LoRATools(headless=headless)
+        # with gr.Tab("About"):
+        #     # About tab to display release information and README content
+        #     gr.Markdown(f"kohya_ss GUI release {release_info}")
+        #     with gr.Tab("README"):
+        #         gr.Markdown(readme_content)
 
         # Display release information in a div element
         gr.Markdown(f"<div class='ver-class'>{release_info}</div>")
