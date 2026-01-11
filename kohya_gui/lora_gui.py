@@ -3096,19 +3096,19 @@ def lora_tab(
             show_progress=False,
         )
 
-    with gr.Tab("Tools"):
-        lora_tools = LoRATools(headless=headless)
+    # with gr.Tab("Tools"):
+    #     lora_tools = LoRATools(headless=headless)
 
-    with gr.Tab("Guides"):
-        gr.Markdown("This section provide Various LoRA guides and information...")
-        if os.path.exists(rf"{scriptdir}/docs/LoRA/top_level.md"):
-            with open(
-                os.path.join(rf"{scriptdir}/docs/LoRA/top_level.md"),
-                "r",
-                encoding="utf-8",
-            ) as file:
-                guides_top_level = file.read() + "\n"
-            gr.Markdown(guides_top_level)
+    # with gr.Tab("Guides"):
+    #     gr.Markdown("This section provide Various LoRA guides and information...")
+    #     if os.path.exists(rf"{scriptdir}/docs/LoRA/top_level.md"):
+    #         with open(
+    #             os.path.join(rf"{scriptdir}/docs/LoRA/top_level.md"),
+    #             "r",
+    #             encoding="utf-8",
+    #         ) as file:
+    #             guides_top_level = file.read() + "\n"
+    #         gr.Markdown(guides_top_level)
 
     return (
         source_model.train_data_dir,
