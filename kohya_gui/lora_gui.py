@@ -1856,8 +1856,8 @@ def lora_tab(
         with gr.Accordion("Configuration", open=False):
             configuration = ConfigurationFile(headless=headless, config=config)
 
-        # with gr.Accordion("Accelerate launch", open=False), gr.Column():
-        #     accelerate_launch = AccelerateLaunch(config=config)
+        with gr.Accordion("Accelerate launch", open=False), gr.Column():
+            accelerate_launch = AccelerateLaunch(config=config)
 
         with gr.Column():
             source_model = SourceModel(
@@ -1872,23 +1872,23 @@ def lora_tab(
             with gr.Accordion("Folders", open=True), gr.Group():
                 folders = Folders(headless=headless, config=config)
 
-        # with gr.Accordion("Metadata", open=False), gr.Group():
-        #     metadata = MetaData(config=config)
+        with gr.Accordion("Metadata", open=False), gr.Group():
+            metadata = MetaData(config=config)
 
-        # with gr.Accordion("Dataset Preparation", open=False):
-        #     gr.Markdown(
-        #         "This section provide Dreambooth tools to help setup your dataset..."
-        #     )
-        #     gradio_dreambooth_folder_creation_tab(
-        #         train_data_dir_input=source_model.train_data_dir,
-        #         reg_data_dir_input=folders.reg_data_dir,
-        #         output_dir_input=folders.output_dir,
-        #         logging_dir_input=folders.logging_dir,
-        #         headless=headless,
-        #         config=config,
-        #     )
+        with gr.Accordion("Dataset Preparation", open=False):
+            gr.Markdown(
+                "This section provide Dreambooth tools to help setup your dataset..."
+            )
+            gradio_dreambooth_folder_creation_tab(
+                train_data_dir_input=source_model.train_data_dir,
+                reg_data_dir_input=folders.reg_data_dir,
+                output_dir_input=folders.output_dir,
+                logging_dir_input=folders.logging_dir,
+                headless=headless,
+                config=config,
+            )
 
-        #     gradio_dataset_balancing_tab(headless=headless)
+            gradio_dataset_balancing_tab(headless=headless)
 
         with gr.Accordion("Parameters", open=False), gr.Column():
 
